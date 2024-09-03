@@ -1,0 +1,46 @@
+﻿%! suppress = MissingLabel
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+
+\begin{document}
+
+    \begin{table}[h!]
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{|>{\centering\arraybackslash}m{5cm}|>{\centering\arraybackslash}m{8cm}|}
+            \hline
+            \textbf{G(x)}                                                                                                                      & \textbf{$a_k$}                                                        \\
+            \hline
+            $\displaystyle (1+x)^n = \sum_{k=0}^n C(n,k)x^k = 1 + C(n,1)x + C(n,2)x^2 + \cdots + x^n $ & $\displaystyle C(n,k)$ \\
+            \hline
+            $\displaystyle (1+ax)^n = \sum_{k=0}^n C(n,k)a^kx^k = 1 + C(n,1)ax + C(n,2)a^2x^2 + \cdots + a^nx^n $ & $\displaystyle C(n,k)a^k$ \\
+            \hline
+            $\displaystyle (1+x^r)^{n/r} = \sum_{k=0}^{n/r} C(n,k)x^{rk} = 1 + C(n,1)x^r + C(n,2)x^{2r} + \cdots + x^n $ & $\displaystyle C(n,k/r) \text{ if } r \mid k; \; 0 \text{ otherwise}$ \\
+            \hline
+            $\displaystyle \frac{1-x^{n+1}}{1-x} = \sum_{k=0}^n x^k = 1 + x + x^2 + \cdots + x^n $ & $\displaystyle 1 \text{ if } k \leq n; \; 0 \text{ otherwise}$ \\
+            \hline
+            $\displaystyle \frac{1}{1-x} = \sum_{k=0}^\infty x^k = 1 + x + x^2 + \cdots $                                                      & $1$                                                                   \\
+            \hline
+            $\displaystyle \frac{1}{1-ax} = \sum_{k=0}^\infty a^kx^k = 1 + ax + a^2x^2 + \cdots $ & $\displaystyle a^k$ \\
+            \hline
+            $\displaystyle \frac{1}{1-x^r} = \sum_{k=0}^\infty x^{rk} = 1 + x^r + x^{2r} + \cdots $ & $\displaystyle 1 \text{ if } r \mid k; \; 0 \text{ otherwise}$ \\
+            \hline
+            $\displaystyle \frac{1}{(1-x)^2} = \sum_{k=0}^\infty (k+1)x^k = 1 + 2x + 3x^2 + \cdots $ & $\displaystyle k+1$ \\
+            \hline
+            $\displaystyle \frac{1}{(1-x)^r} = \sum_{k=0}^\infty C(n+k-1,k)x^k = 1 + C(n,1)x + C(n+1,2)x^2 + \cdots $ & $\displaystyle C(n+k-1,k) = C(n+k-1,n-1)$ \\
+            \hline
+            $\displaystyle \frac{1}{(1+x)^n} = \sum_{k=0}^\infty C(n+k-1,k)(-1)^kx^k = 1 - C(n,1)x + C(n+1,2)x^2 - \cdots $ & $\displaystyle (-1)^k C(n+k-1,k) = (-1)^k C(n+k-1,n-1)$ \\
+            \hline
+            $\displaystyle \frac{1}{(1-ax)^r} = \sum_{k=0}^\infty C(n+k-1,k)a^kx^k = 1 + C(n,1)ax + C(n+1,2)a^2x^2 + \cdots $ & $\displaystyle C(n+k-1,k)a^k = C(n+k-1,n-1)a^k$ \\
+            \hline
+            $\displaystyle e^x = \sum_{k=0}^\infty \frac{x^k}{k!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots $ & $\displaystyle \frac{1}{k!}$ \\
+            \hline
+            $\displaystyle \ln(1+x) = \sum_{k=1}^\infty \frac{(-1)^{k+1}x^k}{k} = x - \frac{x^2}{2} + \frac{x^3}{3} - \frac{x^4}{4} + \cdots $ & $\displaystyle \frac{(-1)^{k+1}}{k}$ \\
+            \hline
+        \end{tabular}
+        \caption{Useful Generating Functions.}
+    \end{table}
+
+\end{document}

@@ -1,0 +1,49 @@
+﻿\documentclass[12pt,letterpaper,oneside,reqno]{amsart}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{float}
+\usepackage{mathrsfs}
+\usepackage{colonequals}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[left=1in,right=1in,bottom=1in,top=1in]{geometry}
+\usepackage[pdfpagelabels,hyperindex,colorlinks=true,linkcolor=blue,urlcolor=magenta,citecolor=green]{hyperref}
+\usepackage{graphicx}
+\linespread{1.7}
+\emergencystretch=1em
+\usepackage{array}
+\usepackage{etoolbox}
+\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
+\raggedbottom
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{definition}[theorem]{Definition}
+
+\numberwithin{equation}{section}
+
+\title[Binomial identities]
+{Binomial identities}
+\author[Petro Kolosov]{Petro Kolosov}
+
+\begin{document}
+
+    \maketitle
+
+    \section{Binomial identities}\label{sec:binomial-identities}
+    Identity for negative $r$ in binomial coefficients
+    \begin{align*}
+        \binom{r}{k}  &= (-1)^k \binom{k-r-1}{k} \\
+        \binom{-r}{k} &= (-1)^k \binom{k+r-1}{k}
+    \end{align*}
+    Thus, the generating function follows
+    \begin{align*}
+        \frac{1}{(1+z)^r} &= \sum_{k} (-1)^k \binom{k+r-1}{k} z^k = 1 - \binom{r}{1}x + \binom{r+1}{2} x^2 - \binom{r+2}{3} x^3 \cdots \\
+        \frac{1}{(1-z)^r} &= \sum_{k} \binom{k+r-1}{k} z^k = 1 + \binom{r}{1}x + \binom{r+1}{2} x^2 + \binom{r+2}{3} x^3 \cdots
+    \end{align*}
+
+\end{document}
