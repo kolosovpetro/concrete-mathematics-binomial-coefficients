@@ -4,6 +4,7 @@
 \usepackage{hyperref}
 
 \begin{document}
+    \section{The problem}\label{sec:the-problem}
     Prove that
     \begin{equation}
         \sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s} = \binom{t+1}{r+s+1}\label{eq:identity-to-prove}
@@ -31,7 +32,7 @@
         &= \sum_{n=0}^{\infty} \binom{n}{r+s+1} x^n
     \end{align*}
     Because of the equation~\eqref{eq:generating-function-base}.
-    Actually, we could simply substitute $k=r+s$ to the equation~\eqref{eq:generating-function-base} to reach desired
+    Actually, we could simply substitute $k=r+s+1$ to the equation~\eqref{eq:generating-function-base} to reach desired
     generating function, anyway.
 
     The coefficient of $x^{t+1}$ in the $x \cdot \sum_{l=0}^{\infty} \binom{l}{r} x^l \cdot \sum_{k=0}^{\infty} \binom{k}{s} x^k$ is
@@ -42,7 +43,8 @@
     Note that upper summation bound is $t$ while coefficient is $[z^{t+1}]$ it is because of the $x$ factor in the generating function.
     General rule for that is
     \begin{align*}
-    [z^{p-q}]A(z)=[z^p]z^qA(z)
+    [z^{p-q}]
+        A(z)=[z^p]z^qA(z)
     \end{align*}
     While
     \begin{align*}
@@ -56,9 +58,22 @@
 
     This approach is based on generating functions
     by \url{http://math.arizona.edu/~faris/combinatoricsweb/generate.pdf}
-%    \begin{align*}
-%        \sum_{l+k=t} \binom{l}{r} \binom{k}{s}
-%    \end{align*}
-%    Let $n = t + 1$, $\binom{t+1}{r+s+1} = \sum_{l+k=t} \binom{l}{r} \binom{k}{s} = \sum_{0 \leq k \leq t} \binom{t-k}{r} \binom{k}{s}$
+
+
+    \section{Flow of the solution}\label{sec:flow-of-the-solution}
+    \begin{itemize}
+        \item First, keep your attention to the left part of the problem~\eqref{eq:identity-to-prove}
+        to see over what index iteration is running, there can be three cases: lower, upper, or both.
+        If both find identity to simplify it to run over either lower or upper index.
+        If is upper index use generating function~\eqref{eq:generating-function-base}.
+        If lower index use binomial theorem as generating function.
+        \item Then keep your attention to the right part of the problem~\eqref{eq:identity-to-prove},
+        precisely the lower index of binomial coefficient, as it defines the generating function
+        we're looking for.
+        \item Then seeing the sum over binomial coefficients multiplication,
+        it means that it should be expressed in terms of convolution of two generating functions,
+        for our case is $[x^{t+1}] x A_r(x) B_s(x)$.
+        \item Match the coefficient given by the convolution of two generating functions and the generating function.
+    \end{itemize}
 
 \end{document}
