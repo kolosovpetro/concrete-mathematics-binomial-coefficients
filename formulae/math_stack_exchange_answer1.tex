@@ -1,0 +1,45 @@
+﻿\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\begin{document}
+    Prove that
+    \begin{align*}
+        \sum_{k=0}^{t} {t-k \choose r}{k \choose s}={t+1 \choose r+s+1}
+    \end{align*}
+    This approach is based on generating functions.
+
+    By \url{http://math.arizona.edu/~faris/combinatoricsweb/generate.pdf}
+
+    We know that
+    \begin{align*}
+        \sum_{n=0}^{\infty} \binom{n}{k} y^n = \frac{y^k}{(1-y)^{k+1}}
+    \end{align*}
+    Then
+    \begin{align*}
+        x \cdot \sum_{l=0}^{\infty} \binom{l}{r} x^l \cdot \sum_{k=0}^{\infty} \binom{k}{s} x^k
+        &= x \cdot \frac{x^r}{(1-x)^{r+1}} \cdot \frac{x^s}{(1-x)^{s+1}} = \frac{x^{r+s+1}}{(1-x)^{r+s+2}} \\
+        &= \sum_{n=0}^{\infty} \binom{n}{r+s+1} x^n
+    \end{align*}
+
+    The coefficient of $x^{t+1}$ of the $x \cdot \sum_{l=0}^{\infty} \binom{l}{r} x^l \cdot \sum_{k=0}^{\infty} \binom{k}{s} x^k$ is
+    \begin{align*}
+    [z^{t+1}]
+        A(z) B(z) = \sum_{k=0}^{t} a_k b_{t-k} = \sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s}
+    \end{align*}
+    Note that upper summation bound is $t$ while coefficient is $[z^{t+1}]$ it is because of the $x$ factor in the generating function.
+    While
+    \begin{align*}
+        [z^{t+1}] \sum_{n=0}^{\infty} \binom{n}{r+s+1} x^n = \binom{t+1}{r+s+1}
+    \end{align*}
+    Thus
+    \begin{align*}
+        \binom{t+1}{r+s+1} = \sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s}
+    \end{align*}
+%    \begin{align*}
+%        \sum_{l+k=t} \binom{l}{r} \binom{k}{s}
+%    \end{align*}
+%    Let $n = t + 1$, $\binom{t+1}{r+s+1} = \sum_{l+k=t} \binom{l}{r} \binom{k}{s} = \sum_{0 \leq k \leq t} \binom{t-k}{r} \binom{k}{s}$
+
+\end{document}
