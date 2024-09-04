@@ -1,0 +1,22 @@
+﻿\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+\begin{document}
+    \section{The problem}\label{sec:the-problem}
+    Use generating functions to prove that
+    \begin{equation}
+        \sum_{k} \binom{l}{m+k} \binom{s+k}{n} (-1)^k = (-1)^{l+m} \binom{s-m}{n-l}
+        \label{eq:identity-to-prove}
+    \end{equation}
+    First, get rid of $n$ in the problem itself for the sake of clarity.
+    Let be $n=t$
+    \begin{align*}
+        \sum_{k} \binom{l}{m+k} \binom{s+k}{t} (-1)^k = (-1)^{l+m} \binom{s-m}{t-l}
+    \end{align*}
+    Let's use the identity
+    \begin{align*}
+         \binom{m}{n} = [x^n] (1+x)^m
+    \end{align*}
+\end{document}
