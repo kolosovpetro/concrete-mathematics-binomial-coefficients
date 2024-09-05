@@ -16,7 +16,9 @@ Identities from Concrete Mathematics~\cite[p. 174]{graham1994concrete}
 \begin{identity}
     Absorption/extraction:
     \begin{align*}
-        \binom{r}{k} &= \frac{r}{k} \binom{r-1}{k-1}, \quad \text{integer } k \neq 0.
+        \binom{r}{k} &= \frac{r}{k} \binom{r-1}{k-1}, \quad \text{integer } k \neq 0. \\
+        k \binom{r}{k} &= r \binom{r-1}{k-1} \\
+        (r-k) \binom{r}{k} &= (r-k) \binom{r}{r-k} = r \binom{r-1}{r-k-1} = r \binom{r-1}{k}.
     \end{align*}
 \end{identity}
 
