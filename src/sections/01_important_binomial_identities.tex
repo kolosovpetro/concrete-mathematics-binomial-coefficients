@@ -1,0 +1,70 @@
+Identities from Concrete Mathematics~\cite[p. 174]{graham1994concrete}
+\begin{identity}
+    Factorial expansion:
+    \begin{align*}
+        \binom{n}{k} &= \frac{n!}{k!(n-k)!}, \quad \text{integers } n \geq k \geq 0.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Symmetry:
+    \begin{align*}
+        \binom{n}{k} &= \binom{n}{n-k}, \quad \text{integer } n \geq 0, \text{ integer } k.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Absorption/extraction:
+    \begin{align*}
+        \binom{r}{k} &= \frac{r}{k} \binom{r-1}{k-1}, \quad \text{integer } k \neq 0.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Addition/induction:
+    \begin{align*}
+        \binom{r}{k} &= \binom{r-1}{k} + \binom{r-1}{k-1}, \quad \text{integer } k.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Upper negation:
+    \begin{align*}
+        \binom{r}{k} &= (-1)^k \binom{k - r - 1}{k}, \quad \text{integer } k.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Trinomial revision:
+    \begin{align*}
+        \binom{r}{m} \binom{m}{k} &= \binom{r}{k} \binom{r - k}{m - k}, \quad \text{integers } m, k.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Binomial theorem:
+    \begin{align*}
+        \sum_{k} \binom{r}{k} x^k y^{r-k} &= (x + y)^r, \quad \text{integer } r \geq 0, \text{ or } |x/y| < 1.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Parallel summation:
+    \begin{align*}
+        \sum_{k \leq n} \binom{r + k}{k} &= \binom{r + n + 1}{n}, \quad \text{integer } n.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Upper summation:
+    \begin{align*}
+        \sum_{0 \leq k \leq n} \binom{k}{m} &= \binom{n + 1}{m + 1}, \quad \text{integers } m, n \geq 0.
+    \end{align*}
+\end{identity}
+
+\begin{identity}
+    Vandermonde convolution:
+    \begin{align*}
+        \sum_{k} \binom{r}{k} \binom{s}{n-k} &= \binom{r + s}{n}, \quad \text{integer } n.
+    \end{align*}
+\end{identity}

@@ -1,5 +1,12 @@
 \begin{thebibliography}{1}
 
+\bibitem{graham1994concrete}
+{Graham, Ronald L. and Knuth, Donald E. and Patashnik, Oren}.
+\newblock {\em {Concrete mathematics: A foundation for computer science (second
+  edition)}}.
+\newblock {Addison-Wesley Publishing Company, Inc.}, 1994.
+\newblock \url {https://archive.org/details/concrete-mathematics}.
+
 \bibitem{faris2011generating}
 {Faris, William G.}
 \newblock {Generating Functions Notes for Math 447}, 2011.
