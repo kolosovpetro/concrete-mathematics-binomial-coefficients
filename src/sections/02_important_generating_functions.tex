@@ -1,36 +1,22 @@
-﻿\subsection{Generating functions}\label{subsec:generating-functions}
-Generating function is a power series that generates an infinite sequence of numbers
-$\{a_0, a_1, a_2, a_3, \dots \}$
-\begin{align*}
-    A(z) = a_0 + a_1 z + a_2 z^2 + a_3 z^3 + \dots = \sum_{k=0}^{\infty} a_k z^k
-\end{align*}
-Coefficient of $z^n$ in $A(z)$ denoted as
-\begin{align*}
-[z^n]
-    A(z) = a_n
-\end{align*}
-
-is the $n$-th term of the sequence.
-For example, generating function for the sequence of binomial coefficients is
-\begin{align*}
-(1+z)^r = \sum_{k=0}^{\infty} \binom{r}{k} z^k
-\end{align*}
-Let be a product of two generating functions $A(z)$ and $B(z)$, then $c_n$ in such sequence is a sum
-\begin{align*}
-    c_n = \sum_{k=0}^{n} a_k b_{n-k}
-\end{align*}
-Above sum is called the convolution of two sequences $\{a_0, a_1, a_2, a_3, \dots \}$ and $\{b_0, b_1, b_2, b_3, \dots \}$.
-So that
-\begin{align*}
-[z^n]
-    A(z) B(z) = c_n
-\end{align*}
-Example for Vandermonde convolution, let be $A(z)=(1+z)^r$ and $B(z)=(1+z)^s$, then multiplying them
-\begin{align*}
-    A(z) B(z) = (1+z)^{r} (1+z)^{s} = (1+z)^{r+s}
-\end{align*}
-Then the coefficient of $z^n$ in $(1+z)^{r+s}$ is
-\begin{align*}
-[z^n]
-    A(z) B(z) = [z^n] (1+z)^{r+s} = \sum_{k=0}^{n} a_k b_{n-k}= \sum_{k=0}^{n} \binom{r}{k} \binom{s}{n-k} = \binom{r+s}{n}
-\end{align*}
+﻿\begin{identity}
+    Binomial coefficient
+    \begin{align*}
+        \binom{r}{n} = \coefficientOf{z}{n} (1+z)^r
+    \end{align*}
+\end{identity}
+\begin{identity}
+    Shifted binomial coefficient for fixed $m$
+    \begin{align*}
+        \binom{r}{m+n} = \coefficientOf{z}{n} \frac{(1+z)^r}{z^m}
+    \end{align*}
+\end{identity}
+\begin{identity}
+    Binomial coefficient of multiset
+    \begin{align*}
+        A_k(z) = \sum_{n=0}^{\infty} \binom{n}{k} z^n = \frac{z^k}{(1-z)^{k+1}}
+    \end{align*}
+    Then
+    \begin{align*}
+        \binom{t}{k} = \coefficientOf{z}{t} \frac{z^k}{(1-z)^{k+1}}
+    \end{align*}
+\end{identity}

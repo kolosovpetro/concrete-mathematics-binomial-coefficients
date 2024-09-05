@@ -13,9 +13,6 @@
 \linespread{1.7}
 \emergencystretch=1em
 \usepackage{array}
-\usepackage{etoolbox}
-\apptocmd{\sloppy}{\hbadness 10000\relax}{}{}
-\raggedbottom
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}[theorem]{Corollary}
@@ -23,36 +20,15 @@
 \newtheorem{example}[theorem]{Example}
 \newtheorem{conjecture}[theorem]{Conjecture}
 \newtheorem{definition}[theorem]{Definition}
+\newtheorem{identity}[theorem]{Identity}
+
+\newcommand \coefficientOf [2] {[#1]^{#2}}
 
 \numberwithin{equation}{section}
 
 \title[Comments on Concrete Mathematics (2e) Binomial coefficients]
 {Comments on Concrete Mathematics (2e) Binomial coefficients}
 \author[Petro Kolosov]{Petro Kolosov}
-%\address{Software Developer, DevOps Engineer}
-%\email{kolosovp94@gmail.com}
-%\urladdr{https://kolosovpetro.github.io}
-%\keywords{
-%    Concrete mathematics,
-%    Binomial coefficients,
-%    Generating functions,
-%}
-%\subjclass[2010]{26E70, 05A30}
-%\date{\today}
-%\hypersetup{
-%    pdftitle={LaTeX Template for Github},
-%    pdfsubject={
-%        Concrete mathematics,
-%        Binomial coefficients,
-%        Generating functions,
-%    },
-%    pdfauthor={Petro Kolosov},
-%    pdfkeywords={
-%        Concrete mathematics,
-%        Binomial coefficients,
-%        Generating functions,
-%    }
-%}
 \begin{document}
 
     \maketitle
