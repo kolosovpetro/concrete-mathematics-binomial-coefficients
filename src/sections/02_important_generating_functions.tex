@@ -1,22 +1,51 @@
 ﻿\begin{identity}
-    Binomial coefficient
+    Cauchy product rule of two generating functions $A(z), \; B(z)$
+    \begin{align*}
+        A(z) \cdot B(z) = \left( \sum_{n=0}^{\infty} a_n z^n \right) \left( \sum_{n=0}^{\infty} b_n z^n \right)
+        = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} a_k b_{n-k} \right) z^n
+    \end{align*}
+\end{identity}
+\begin{identity}
+    Cauchy product rule for $(1+z)^{r+s}$
+    \begin{align*}
+    (1 + z)
+        ^{r+s} = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} \binom{r}{k} \binom{s}{n-k} \right) z^n
+    \end{align*}
+\end{identity}
+\begin{identity}
+    Shift selected coefficient of generating function
+    \begin{align*}
+    [z^{p-q}]
+        A(z)=[z^p] z^{q} A(z) \\
+        [z^{p+q}] A(z)=[z^p] \frac{1}{z^{q}} A(z)
+    \end{align*}
+\end{identity}
+\begin{identity}
+    Binomial coefficient, fixed $r$
     \begin{align*}
         \binom{r}{n} = \coefficientOf{z}{n} (1+z)^r
     \end{align*}
 \end{identity}
 \begin{identity}
-    Shifted binomial coefficient for fixed $m$
+    Shifted binomial coefficient, fixed $m, r$
     \begin{align*}
         \binom{r}{m+n} = \coefficientOf{z}{n} \frac{(1+z)^r}{z^m}
     \end{align*}
 \end{identity}
 \begin{identity}
-    Binomial coefficient of multiset
+    Binomial coefficient of multiset~\cite[eq. 8]{faris2011generating}, fixed k
     \begin{align*}
         A_k(z) = \sum_{n=0}^{\infty} \binom{n}{k} z^n = \frac{z^k}{(1-z)^{k+1}}
     \end{align*}
     Then
     \begin{align*}
         \binom{t}{k} = \coefficientOf{z}{t} \frac{z^k}{(1-z)^{k+1}}
+    \end{align*}
+    So that iteration goes over upper index of binomial coefficient.
+\end{identity}
+\begin{identity}
+    Shifted Binomial coefficient of multiset, fixed k
+    \begin{align*}
+        \binom{t}{k+r} = \coefficientOf{z}{t} \frac{z^{k+r}}{(1-z)^{k+r+1}}
     \end{align*}
 \end{identity}
