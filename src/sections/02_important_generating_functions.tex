@@ -62,3 +62,18 @@
         \sum_{n=0}^{\infty} (1 + x)^n y^n (-1)^n = \frac{1}{1 + (1 + x)y}
     \end{align*}
 \end{identity}
+\begin{identity}
+    Binomial coefficients row summation East-West
+    \begin{align*}
+        \sum_{k} \binom{r}{j-k}
+        &= \sum_{k} \coefficientOf{z}{j-k}(1+z)^r
+        = \coefficientOf{z}{j} \sum_{k} z^k (1+z)^r \\
+        &= (1+z)^r \coefficientOf{z}{j} \sum_{k} z^k
+    \end{align*}
+    Because $[z^{p-q}] A(z)=[z^p] z^{q} A(z)$
+\end{identity}
+
+
+
+
+\clearpage
