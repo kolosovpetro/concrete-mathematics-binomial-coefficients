@@ -34,6 +34,24 @@ Identities from Concrete Mathematics~\cite[p. 174]{graham1994concrete}
     \begin{align*}
         \binom{r}{k} &= (-1)^k \binom{k - r - 1}{k}, \quad \text{integer } k.
     \end{align*}
+    Let $r=\ell-1-t$ and $k=\ell-t-m+s$, then
+    \begin{align*}
+        \binom{\ell-1-t}{\ell-t-m+s} &= (-1)^{\ell-t-m+s} \binom{m+s}{\ell-t-m+s}.
+    \end{align*}
+    Also
+    \begin{align*}
+    (-1)
+        ^{t+s} \binom{\ell-1-t}{\ell-t-m+s}
+        &= (-1)^{\ell-m+2s} \binom{m+s}{\ell-t-m+s} \\
+        &= (-1)^{\ell-m} \binom{m+s}{\ell-t-m+s} \\
+        &= (-1)^{\ell+m} \binom{m+s}{\ell-t-m+s}
+    \end{align*}
+    Because
+    \begin{align*}
+    (-1)
+        ^{k+2s} \binom{n}{t} &= (-1)^k \binom{n}{t} \\
+        (-1)^{k-s} \binom{n}{t}  &= (-1)^{k+s} \binom{n}{t}
+    \end{align*}
 \end{identity}
 
 \begin{identity}
