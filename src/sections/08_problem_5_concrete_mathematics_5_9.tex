@@ -3,8 +3,39 @@
 This is from Concrete Mathematics equation (5.9).
 Using generating function prove that
 \begin{align}
-    \sum_{k \leq n} \binom{r+k}{k} = \binom{r+n+1}{n}
+    \sum_{k=0}^{n} \binom{r+k}{k} = \binom{r+n+1}{n}
     \label{eq:identity-to-prove-problem-5}
 \end{align}
+Rewrite our identity to get rid of $k$ as lower index of binomial coefficient,
+that makes easier to guess required generating function.
+By symmetry of binomial coefficients we have
+\begin{align*}
+    \sum_{k=0}^{n} \binom{r+k}{r} = \binom{r+n+1}{n}
+\end{align*}
+There is an implicit generating function under the sigma notation, lets show it
+\begin{align*}
+    \sum_{k=0}^{n} \binom{r+k}{r} \binom{n-k}{0} = \binom{r+n+1}{n}
+\end{align*}
+We know that
+\begin{align*}
+    \binom{t}{k} = \coefficientOf{z}{t} \frac{z^k}{(1-z)^{k+1}}
+\end{align*}
+So that
+\begin{align*}
+    \coefficientOf{z}{t} \sum_{m=0}^{\infty} \binom{m}{k} z^m = \coefficientOf{z}{t} \frac{z^k}{(1-z)^{k+1}}
+\end{align*}
+Given Cauchy product rule of two generating functions $A(z), \; B(z)$
+\begin{align*}
+    A(z) \cdot B(z) = \left( \sum_{n=0}^{\infty} a_n z^n \right) \left( \sum_{n=0}^{\infty} b_n z^n \right)
+    = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} a_k b_{n-k} \right) z^n
+\end{align*}
+We can recognize out pattern there
+
+
+
+
+
+
+
 
 \clearpage
