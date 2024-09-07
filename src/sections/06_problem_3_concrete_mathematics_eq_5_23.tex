@@ -1,0 +1,58 @@
+﻿\section{Problem 3: Concrete mathematics equation (5.23)}
+\label{sec:problem-3:-concrete-mathematics-equation-(5.23)}
+Use generating functions to prove that
+\begin{equation}
+    \sum_{k} \binom{l}{m+k} \binom{s}{n+k} = \binom{l+s}{l-m+n}
+    \label{eq:identity-to-prove}
+\end{equation}
+The first problem is that it is not clear what summation bounds should be to keep non-zero terms.
+Let's reverse the coefficient $\binom{l}{m+k}$ to see exact summation bounds
+\begin{align*}
+    \sum_{k=0}^{l-m} \binom{l}{l-m-k} \binom{s}{n+k} = \binom{l+s}{l-m+n}
+\end{align*}
+So now it is clear that we are hunting for the coefficient of $z^{l-m}$ in the generating function.
+Let's rearrange the sum above
+\begin{align*}
+    \sum_{k=0}^{(l-m)} \binom{s}{n+k} \binom{l}{(l-m)-k} = \binom{l+s}{n+(l-m)}
+\end{align*}
+So we can see that left-hand side of the equation above matches the convolution of two generating functions.
+\begin{align*}
+    A(z) \cdot B(z) = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} a_k b_{n-k} \right) z^n
+\end{align*}
+having $n=l-m$ so that basically our identity is taking the coefficient of $z^{l-m}$
+in the convolution of two generating functions.
+Let be $n=t$ for the sake of simplicity
+\begin{equation}
+    \sum_{k=0}^{(l-m)} \binom{s}{t+k} \binom{l}{(l-m)-k} = \binom{l+s}{t+(l-m)}
+    \label{eq:identity-to-prove-2}
+\end{equation}
+So we have to match two generating functions $A_s(z), \; B_l(z)$ for
+the binomial coefficients: $\binom{s}{t+k}$ and $\binom{l}{(l-m)-k}$.
+So that
+\begin{align*}
+    A_s(z) = \frac{(1+z)^s}{z^t} \\
+    B_l(z) = (1+z)^l \\
+\end{align*}
+So that product of them
+\begin{align*}
+    A_s(z) \cdot B_l(z) = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} \binom{s}{t+k} \binom{l}{n-k} \right) z^n
+    = \frac{(1+z)^s}{z^t} \cdot (1+z)^l = \frac{(1+z)^{l+s}}{z^t}
+\end{align*}
+Right side of the~\eqref{eq:identity-to-prove-2} is the coefficient of
+$z^{l-m}$ in $\frac{(1+z)^{l+s}}{z^t}$
+\begin{align*}
+[z^{l-m}]
+    \frac{(1+z)^{l+s}}{z^t} = \binom{l+s}{l-m+t}
+\end{align*}
+Left side of the~\eqref{eq:identity-to-prove-2} is the coefficient of $z^{l-m}$
+in the convolution of two generating functions
+\begin{align*}
+[z^{l-m}]
+    A_s(z) \cdot B_l(z) = \sum_{k=0}^{(l-m)} \binom{s}{t+k} \binom{l}{(l-m)-k}
+\end{align*}
+Thus,
+\begin{align*}
+    \sum_{k=0}^{(l-m)} \binom{s}{t+k} \binom{l}{(l-m)-k} = \binom{l+s}{l-m+t}
+\end{align*}
+
+\clearpage

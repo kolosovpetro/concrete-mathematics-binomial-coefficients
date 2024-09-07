@@ -1,0 +1,75 @@
+﻿\section{Problem 1: Column summation of two binomial coefficients (MSE)}
+\label{sec:problem-1-column-summation-of-two-binomial-coefficients-mse}
+Prove that
+\begin{equation}
+    \sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s} = \binom{t+1}{r+s+1}\label{eq:identity-to-prove}
+\end{equation}
+
+We can see that iteration in the left-hand side of the equation~\eqref{eq:identity-to-prove} is running
+over the upper index of binomial coefficients, so let's figure out proper generating function for it.
+We know that
+\begin{equation}
+    \sum_{n=0}^{\infty} \binom{n}{k} y^n = \frac{y^k}{(1-y)^{k+1}}\label{eq:generating-function-base}
+\end{equation}
+Now we keep attention to the lower index of binomial coefficient in right-hand side
+of the equation~\eqref{eq:identity-to-prove} which is $r+s+1$.
+We have to match some generating function to reach the $\sum_{n=0}^{\infty} \binom{n}{r+s+1} x^n$
+Let be generating functions
+\begin{align*}
+    A_r(x) &= \sum_{l=0}^{\infty} \binom{l}{r} x^l\\
+    B_s(x) &= \sum_{k=0}^{\infty} \binom{k}{s} x^k
+\end{align*}
+Now let's match our generating function
+\begin{align*}
+    x A_r(x) B_s(x)
+    &= x \cdot \left( \sum_{l=0}^{\infty} \binom{l}{r} x^l \right) \cdot \left( \sum_{k=0}^{\infty} \binom{k}{s} x^k \right) \\
+    &= x \cdot \frac{x^r}{(1-x)^{r+1}} \cdot \frac{x^s}{(1-x)^{s+1}} = \frac{x^{r+s+1}}{(1-x)^{r+s+2}} \\
+    &= \sum_{n=0}^{\infty} \binom{n}{r+s+1} x^n
+\end{align*}
+Because of the equation~\eqref{eq:generating-function-base}.
+Actually, we could simply substitute $k=r+s+1$ to the equation~\eqref{eq:generating-function-base} to reach desired
+generating function, anyway.
+
+The coefficient of $x^{t+1}$ in the $x \cdot \sum_{l=0}^{\infty} \binom{l}{r} x^l \cdot \sum_{k=0}^{\infty} \binom{k}{s} x^k$ is
+\begin{align*}
+[x^{t+1}]
+    x A_r(x) B_s(x) = \sum_{k=0}^{t} a_k b_{t-k} = \sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s}
+\end{align*}
+Note that upper summation bound is $t$ while coefficient is $[z^{t+1}]$ it is because of the $x$ factor in the generating function.
+General rule for that is
+\begin{align*}
+[z^{p-q}]
+    A(z)=[z^p]z^qA(z)
+\end{align*}
+While
+\begin{align*}
+[x^{t+1}]
+    \sum_{n=0}^{\infty} \binom{n}{r+s+1} x^n = \binom{t+1}{r+s+1}
+\end{align*}
+Thus
+\begin{align*}
+    \binom{t+1}{r+s+1} = \sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s}
+\end{align*}
+
+This approach is based on generating functions
+by \url{http://math.arizona.edu/~faris/combinatoricsweb/generate.pdf}
+
+\subsection{Flow of the solution}
+\label{subsec:flow-of-the-solution}
+\begin{itemize}
+    \item First, keep your attention to the left part of the problem~\eqref{eq:identity-to-prove}
+    to see over what index iteration is running, there can be three cases: lower, upper, or both.
+    If both find identity to simplify it to run over either lower or upper index.
+    If is upper index use generating function~\eqref{eq:generating-function-base}.
+    If lower index use binomial theorem as generating function.
+    \item Then keep your attention to the right part of the problem~\eqref{eq:identity-to-prove},
+    precisely the lower index of binomial coefficient, as it defines the generating function
+    we're looking for.
+    \item Then seeing the sum over binomial coefficients multiplication,
+    it means that it should be expressed in terms of convolution of two generating functions,
+    for our case is $[x^{t+1}] x A_r(x) B_s(x)$.
+    \item Match the coefficient given by the convolution of two generating functions and the generating function.
+\end{itemize}
+
+
+\clearpage

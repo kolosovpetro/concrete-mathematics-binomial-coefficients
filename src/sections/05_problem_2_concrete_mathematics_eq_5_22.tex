@@ -1,0 +1,75 @@
+﻿\section{Problem 2: Concrete mathematics equation (5.22)}
+\label{sec:problem-2:-concrete-mathematics-equation-(5.22)}
+Use generating functions to prove that
+\begin{equation}
+    \sum_{k} \binom{r}{m+k} \binom{s}{n-k} = \binom{r+s}{m+n}
+    \label{eq:identity-to-prove}
+\end{equation}
+Okay, first let's review the summation boundary such that terms are non-zero.
+Summation is done over $k$ so that binomial coefficient $\binom{s}{n-k}$ fixes $k$ to be less or equal to $n$.
+Rewrite the statement of the problem
+\begin{equation}
+    \sum_{k=0}^{n} \binom{r}{m+k} \binom{s}{n-k} = \binom{r+s}{m+n}
+    \label{eq:identity-to-prove-2}
+\end{equation}
+Left-hand side of it reminds me sequence convolution of two generating functions.
+Let be two generating functions for such left-hand side summation:
+\begin{equation*}
+    A_r(z); \quad B_s(z)
+\end{equation*}
+Multiplying those generating functions yields
+\begin{align*}
+    C(x) = \left(\sum_{m=0}^{\infty} a_m x^m\right) \left(\sum_{n=0}^{\infty} b_n x^n\right) = \sum_{k=0}^{\infty} \left( \sum_{m=0}^{k} a_m b_{k-m} \right) x^k
+\end{align*}
+Then
+\begin{align*}
+    A_r(z) \cdot B_s(z) = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} a_k b_{n-k} \right) x^n
+\end{align*}
+We can notice the similar structure as we have in our problem~\eqref{eq:identity-to-prove-2}.
+So let's find the generating function for the binomial coefficient $\binom{r+s}{m+n}$.
+We know that generating function for the binomial coefficient $\binom{n}{k}$ is
+\begin{align*}
+(1+z)
+    ^{n} = \sum_{k=0}^{\infty} \binom{n}{k} z^k
+\end{align*}
+If we want to have $m+k$ as lower index, then
+\begin{align*}
+(1+z)
+    ^{r} = \sum_{k=0}^{\infty} \binom{r}{m+k} z^{m+k} \\
+    (1+z)^{r} = z^m \sum_{k=0}^{\infty} \binom{r}{m+k} z^{k} \\
+    \frac{(1+z)^{r}}{z^m} = \sum_{k=0}^{\infty} \binom{r}{m+k} z^{k}
+\end{align*}
+Thus, the coefficient of $z^n$ in $\frac{(1+z)^{r}}{z^m}$ is
+\begin{align*}
+[z^n]
+    \frac{(1+z)^{r}}{z^m} = \binom{r}{m+n}
+\end{align*}
+So that our first generating function is
+\begin{align*}
+    A_r(z) = \frac{(1+z)^{r}}{z^m}
+\end{align*}
+The second generating function is
+\begin{align*}
+    B_s(z) = (1+z)^{s}
+\end{align*}
+Multiplying them
+\begin{align*}
+    A_r(z) \cdot B_s(z) = \frac{(1+z)^{r}}{z^m} \cdot (1+z)^{s} = \frac{(1+z)^{r+s}}{z^m}
+\end{align*}
+Convolution form is
+\begin{align*}
+    A_r(z) \cdot B_s(z) = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} a_k b_{n-k} \right) x^n \\
+    = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} \binom{r}{m+k} \binom{s}{n-k} \right) x^n
+\end{align*}
+Coefficient of $z^n$ in $\frac{(1+z)^{r+s}}{z^m}$ is
+\begin{align*}
+[z^n]
+    \frac{(1+z)^{r+s}}{z^m} = \binom{r+s}{m+n}
+\end{align*}
+Coefficient of $z^n$ in $\sum_{k=0}^{\infty} \left( \sum_{k=0}^{n} \binom{r}{m+k} \binom{s}{n-k} \right) x^n$ is
+\begin{align*}
+[z^n]
+    A_r(z) \cdot B_s(z) = \sum_{k=0}^{n} \binom{r}{m+k} \binom{s}{n-k}
+\end{align*}
+
+\clearpage
