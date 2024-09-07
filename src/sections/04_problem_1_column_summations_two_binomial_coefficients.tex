@@ -1,18 +1,19 @@
-﻿\section{Problem 1: Column summation of two binomial coefficients (MSE)}
+﻿\section{Problem 1: Prove that $\sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s} = \binom{t+1}{r+s+1}$}
 \label{sec:problem-1-column-summation-of-two-binomial-coefficients-mse}
 Prove that
 \begin{equation}
-    \sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s} = \binom{t+1}{r+s+1}\label{eq:identity-to-prove}
+    \sum_{k=0}^{t} \binom{t-k}{r} \binom{k}{s} = \binom{t+1}{r+s+1}
+    \label{eq:identity-to-prove-problem-1}
 \end{equation}
 
-We can see that iteration in the left-hand side of the equation~\eqref{eq:identity-to-prove} is running
+We can see that iteration in the left-hand side of the equation~\eqref{eq:identity-to-prove-problem-1} is running
 over the upper index of binomial coefficients, so let's figure out proper generating function for it.
 We know that
 \begin{equation}
     \sum_{n=0}^{\infty} \binom{n}{k} y^n = \frac{y^k}{(1-y)^{k+1}}\label{eq:generating-function-base}
 \end{equation}
 Now we keep attention to the lower index of binomial coefficient in right-hand side
-of the equation~\eqref{eq:identity-to-prove} which is $r+s+1$.
+of the equation~\eqref{eq:identity-to-prove-problem-1} which is $r+s+1$.
 We have to match some generating function to reach the $\sum_{n=0}^{\infty} \binom{n}{r+s+1} x^n$
 Let be generating functions
 \begin{align*}
@@ -57,12 +58,12 @@ by \url{http://math.arizona.edu/~faris/combinatoricsweb/generate.pdf}
 \subsection{Flow of the solution}
 \label{subsec:flow-of-the-solution}
 \begin{itemize}
-    \item First, keep your attention to the left part of the problem~\eqref{eq:identity-to-prove}
+    \item First, keep your attention to the left part of the problem~\eqref{eq:identity-to-prove-problem-1}
     to see over what index iteration is running, there can be three cases: lower, upper, or both.
     If both find identity to simplify it to run over either lower or upper index.
     If is upper index use generating function~\eqref{eq:generating-function-base}.
     If lower index use binomial theorem as generating function.
-    \item Then keep your attention to the right part of the problem~\eqref{eq:identity-to-prove},
+    \item Then keep your attention to the right part of the problem~\eqref{eq:identity-to-prove-problem-1},
     precisely the lower index of binomial coefficient, as it defines the generating function
     we're looking for.
     \item Then seeing the sum over binomial coefficients multiplication,
