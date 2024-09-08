@@ -9,7 +9,7 @@ Using generating function prove that
 So we are looking for the coefficient of $z^n$ in multiplication
 of two yet-unspecified generating functions $A, B$ because of upper index of summation $n$.
 
-
+\subsection{Left-hand side of the identity}\label{subsec:left-hand-side-of-the-identity}
 Rewrite our identity to get rid of $k$ as lower index of binomial coefficient,
 that makes easier to guess required generating function.
 By symmetry of binomial coefficients we have
@@ -86,18 +86,49 @@ Having $l=r$ and $j=0$
 \begin{align*}
     \sum_{k=0}^{n} \binom{r+k}{r} \binom{n-k}{0} = \coefficientOf{z}{n} \frac{1}{(1-z)^{r+2}}
 \end{align*}
-%So that coefficient of $z^n$ in $\frac{z^{l+j}}{(1-z)^{l+j+2} \cdot z^r}$ is
-%\begin{align*}
-%    [z^n]
-%    \frac{z^{l+j}}{(1-z)^{l+j+1} \cdot z^r} = \binom{r+n}{l+j}
-%\end{align*}
-%So looking to the RHS of the general form of our problem~\eqref{eq:problem-5-general-form}
-%we can guess that generating function for $\binom{r+n+1}{n}$ is
-%\begin{align*}
-%    \binom{r+n+1}{n} = \coefficientOf{z}{r+n+1} \frac{z^n}{(1-z)^{n+1}}
-%\end{align*}
-%Or
-%\begin{align*}
-%    \binom{r+n+1}{r+1} = \coefficientOf{z}{r+n+1} \frac{z^{r+1}}{(1-z)^{r+2}}
-%\end{align*}
+Which evaluates
+\begin{align*}
+    \binom{r+n-1}{n}   &= \coefficientOf{z}{n} \frac{1}{(1-z)^r} = \coefficientOf{z}{n} \sum_{k=0}^\infty \binom{r+k-1}{k} z^k \\
+    \binom{r+n-1}{r-1} &= \coefficientOf{z}{n} \frac{1}{(1-z)^r} = \coefficientOf{z}{n} \sum_{k=0}^\infty \binom{r+k-1}{k} z^k
+\end{align*}
+So that
+\begin{align*}
+    \coefficientOf{z}{n} \frac{1}{(1-z)^{r+2}} = \binom{r+n+1}{r+1}
+\end{align*}
+Therefore, desired result holds
+\begin{align*}
+    \sum_{k=0}^{n} \binom{r+k}{r} = \binom{r+n+1}{n}
+\end{align*}
+\subsection{Right-hand side of the identity}
+\label{subsec:right-hand-side-of-the-identity}
+Consider the binomial coefficient $\binom{r+n+1}{r+1}$ from RHS of the problem~\eqref{eq:identity-to-prove-problem-5}
+and its generating function.
+First, let's do not forget about symmetry rule
+\begin{align*}
+    \binom{r+n+1}{r+1} = \binom{r+n+1}{n}
+\end{align*}
+So it is the coefficient of $z^n$ in the generating function
+\begin{align*}
+    \binom{(r+1)+n}{(r+1)} = \coefficientOf{z}{n} \sum_{k=0}^{\infty} \binom{(r+1)+k}{(r+1)} z^k
+\end{align*}
+Setting $c=r+1$ and $u=r+1$ we have, fixed $c,u$
+\begin{align*}
+    \binom{c+n}{u} = \coefficientOf{z}{n} \sum_{k=0}^{\infty} \binom{c+k}{u} z^k
+\end{align*}
+Then working generating function is
+\begin{align*}
+    F_{c,u}(z) = \sum_{m=0}^{\infty} \binom{c+m}{u} z^{m} = \frac{z^u}{(1-z)^{u+1} \cdot z^c}
+\end{align*}
+So the right-hand side in terms of $F$ is
+\begin{align*}
+    \binom{(r+1)+n}{(r+1)}
+    &= \coefficientOf{z}{n} F_{r+1, r+1}(z)
+    = \coefficientOf{z}{n} \frac{z^{r+1}}{(1-z)^{r+1+1} \cdot z^{r+1}} \\
+    &= \coefficientOf{z}{n} \frac{1}{(1-z)^{r+2}} \\
+\end{align*}
+
+
+
+
+
 \clearpage

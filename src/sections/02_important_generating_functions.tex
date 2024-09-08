@@ -73,7 +73,19 @@
         = \coefficientOf{z}{j} \sum_{k} z^k (1+z)^r \\
         &= (1+z)^r \coefficientOf{z}{j} \sum_{k} z^k
     \end{align*}
-    Because $[z^{p-q}] A(z)=[z^p] z^{q} A(z)$
+    Because $[z^{p-q}] A(z)=[z^p] z^{q} A(z)$.
+\end{identity}
+
+\begin{identity}
+    \begin{align*}
+        \frac{1}{(1-z)^r} &= \sum_{k=0}^\infty C(r+k-1,k) z^k = 1 + C(r,1) z + C(r+1,2) z^2 + \cdots \\
+        \frac{1}{(1-z)^r} &= \sum_{k=0}^\infty \binom{r+k-1}{k} z^k = 1 + \binom{r}{1} z + \binom{r+1}{2} z^2 + \binom{r+2}{3} z^3 + \cdots
+    \end{align*}
+    Therefore,
+    \begin{align*}
+        \binom{r+n-1}{n}   &= \coefficientOf{z}{n} \frac{1}{(1-z)^r} = \coefficientOf{z}{n} \sum_{k=0}^\infty \binom{r+k-1}{k} z^k \\
+        \binom{r+n-1}{r-1} &= \coefficientOf{z}{n} \frac{1}{(1-z)^r} = \coefficientOf{z}{n} \sum_{k=0}^\infty \binom{r+k-1}{k} z^k
+    \end{align*}
 \end{identity}
 
 
