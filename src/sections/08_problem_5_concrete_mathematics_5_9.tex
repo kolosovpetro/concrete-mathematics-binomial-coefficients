@@ -3,20 +3,38 @@
 This is from Concrete Mathematics equation (5.9).
 Using generating function prove that
 \begin{align}
-    \sum_{k=0}^{n} \binom{r+k}{k} = \binom{r+n+1}{n}
+    \sum_{k=0}^{n} \binom{r+k}{k} = \binom{r+n+1}{n} = \binom{r+n+1}{r+1}
     \label{eq:identity-to-prove-problem-5}
 \end{align}
+So we are looking for the coefficient of $z^n$ in multiplication
+of two yet-unspecified generating functions $A, B$ because of upper index of summation $n$.
+
+
 Rewrite our identity to get rid of $k$ as lower index of binomial coefficient,
 that makes easier to guess required generating function.
 By symmetry of binomial coefficients we have
 \begin{align*}
     \sum_{k=0}^{n} \binom{r+k}{r} = \binom{r+n+1}{n}
 \end{align*}
-There is an implicit generating function under the sigma notation, lets show it
+Multiply the sum by $\binom{n-k}{j}$ to match the Cauchy product rule
 \begin{align*}
-    \sum_{k=0}^{n} \binom{r+k}{r} \binom{n-k}{0} = \binom{r+n+1}{n}
+    \sum_{k=0}^{n} \binom{r+k}{r} \binom{n-k}{j}
 \end{align*}
-We know that
+As iteration goes over upper index of binomial coefficients, let be $r=l$ in
+lower index of $\binom{r+k}{r}$.
+So for fixed $r, l, j$ we have general form of the problem
+\begin{equation}
+    \sum_{k=0}^{n} \binom{r+k}{l} \binom{n-k}{j}
+    \label{eq:problem-5-general-form}
+\end{equation}
+Looking to the upper index of summation $n$ we can conclude that we are looking for
+the coefficient of $z^n$ in the convolution of two generating functions in the
+Cauchy product rule of two generating functions $A(z), \; B(z)$
+\begin{align*}
+    A(z) \cdot B(z) = \left( \sum_{n=0}^{\infty} a_n z^n \right) \left( \sum_{n=0}^{\infty} b_n z^n \right)
+    = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} a_k b_{n-k} \right) z^n
+\end{align*}
+As summation runs over upper index of binomial coefficients, our basic generating function is
 \begin{align*}
     \binom{t}{k} = \coefficientOf{z}{t} \frac{z^k}{(1-z)^{k+1}}
 \end{align*}
@@ -24,18 +42,62 @@ So that
 \begin{align*}
     \coefficientOf{z}{t} \sum_{m=0}^{\infty} \binom{m}{k} z^m = \coefficientOf{z}{t} \frac{z^k}{(1-z)^{k+1}}
 \end{align*}
-Given Cauchy product rule of two generating functions $A(z), \; B(z)$
+Consider the binomial coefficient $\binom{r+n}{l}$ and its generating function.
+Note that $r$ is fixed value there and iteration goes over $n$.
+Therefore,
 \begin{align*}
-    A(z) \cdot B(z) = \left( \sum_{n=0}^{\infty} a_n z^n \right) \left( \sum_{n=0}^{\infty} b_n z^n \right)
-    = \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} a_k b_{n-k} \right) z^n
+    \coefficientOf{z}{t} \sum_{m=0}^{\infty} \binom{r+m}{k} z^{r+m} &= \coefficientOf{z}{t} \frac{z^k}{(1-z)^{k+1}} \\
+    \coefficientOf{z}{t} \sum_{m=0}^{\infty} \binom{r+m}{k} z^{m}   &= \coefficientOf{z}{t} \frac{z^k}{(1-z)^{k+1} \cdot z^r}
 \end{align*}
-We can recognize out pattern there
-
-
-
-
-
-
-
-
+Denote above generating function as $A_{r,k}(z)$.
+\begin{align*}
+    A_{r,k}(z) = \sum_{m=0}^{\infty} \binom{r+m}{k} z^{m} = \frac{z^k}{(1-z)^{k+1} \cdot z^r}
+\end{align*}
+Consider the second binomial coefficient $\binom{n-k}{j}$ where $j$ is fixed value.
+Its generating function $B_j(z)$ is
+\begin{align*}
+    B_j(z) = \frac{z^j}{(1-z)^{j+1}}
+\end{align*}
+So considering base form of the problem~\eqref{eq:problem-5-general-form} we have the following generating functions.
+For $\binom{r+k}{l}$ having fixed $r, l$
+\begin{align*}
+    A_{r,l}(z) = \sum_{m=0}^{\infty} \binom{r+m}{l} z^{m} = \frac{z^l}{(1-z)^{l+1} \cdot z^r}
+\end{align*}
+for $\binom{n-k}{j}$ having fixed $j$
+\begin{align*}
+    B_j(z) = \frac{z^j}{(1-z)^{j+1}}
+\end{align*}
+Multiplication yields
+\begin{align*}
+    A_{r,l}(z) \cdot B_j(z) &= \frac{z^l}{(1-z)^{l+1} \cdot z^r} \cdot \frac{z^j}{(1-z)^{j+1}}
+    = \frac{z^{l+j}}{(1-z)^{l+j+2} \cdot z^r} \\
+    &= \frac{z^{l+j-r}}{(1-z)^{l+j+2}}
+\end{align*}
+General Cauchy form yields
+\begin{align*}
+    A_{r,l}(z) \cdot B_j(z) &= \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} a_k b_{n-k} \right) z^n \\
+    &= \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} \binom{r+k}{l} \binom{n-k}{j} \right) z^n
+\end{align*}
+Therefore, we have an identity
+\begin{align*}
+    \sum_{k=0}^{n} \binom{r+k}{l} \binom{n-k}{j} = \coefficientOf{z}{n} \frac{z^{l+j-r}}{(1-z)^{l+j+2}}
+\end{align*}
+Having $l=r$ and $j=0$
+\begin{align*}
+    \sum_{k=0}^{n} \binom{r+k}{r} \binom{n-k}{0} = \coefficientOf{z}{n} \frac{1}{(1-z)^{r+2}}
+\end{align*}
+%So that coefficient of $z^n$ in $\frac{z^{l+j}}{(1-z)^{l+j+2} \cdot z^r}$ is
+%\begin{align*}
+%    [z^n]
+%    \frac{z^{l+j}}{(1-z)^{l+j+1} \cdot z^r} = \binom{r+n}{l+j}
+%\end{align*}
+%So looking to the RHS of the general form of our problem~\eqref{eq:problem-5-general-form}
+%we can guess that generating function for $\binom{r+n+1}{n}$ is
+%\begin{align*}
+%    \binom{r+n+1}{n} = \coefficientOf{z}{r+n+1} \frac{z^n}{(1-z)^{n+1}}
+%\end{align*}
+%Or
+%\begin{align*}
+%    \binom{r+n+1}{r+1} = \coefficientOf{z}{r+n+1} \frac{z^{r+1}}{(1-z)^{r+2}}
+%\end{align*}
 \clearpage
