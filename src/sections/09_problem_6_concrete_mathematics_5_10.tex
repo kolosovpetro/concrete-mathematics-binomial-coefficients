@@ -3,8 +3,50 @@
 This is from Concrete Mathematics equation (5.10).
 Using generating function prove that
 \begin{align}
-    \sum_{k \leq n} \binom{k}{m} = \binom{n+1}{m+1}
+    \sum_{k=0}^{n} \binom{k}{m} = \binom{n+1}{m+1}
     \label{eq:identity-to-prove-problem-6}
 \end{align}
-
+Now it is clear that we are looking for the coefficient of $z^n$ in the convolution of two generating functions.
+Rewrite problem to match the Cauchy product rule
+\begin{align}
+    \sum_{k=0}^{n} \binom{k}{m} \binom{n-k}{j} = \binom{n+1}{m+1}
+    \label{eq:problem-6-general-form}
+\end{align}
+Generating function for the binomial coefficient $\binom{k}{m}$ is given by
+\begin{align*}
+    A_m(z) = \sum_{k=0}^{\infty} \binom{k}{m} z^k = \frac{z^m}{(1-z)^{m+1}}
+\end{align*}
+Generating function for the binomial coefficient $\binom{n-k}{j}$ is given by
+\begin{align*}
+    B_j(z) = \sum_{k=0}^{\infty} \binom{k}{j} z^k = \frac{z^j}{(1-z)^{j+1}}
+\end{align*}
+Multiplication of them yields
+\begin{align*}
+    A_m(z) \cdot B_j(z)
+    &= \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} \binom{k}{m} \binom{n-k}{j} \right) z^n
+    = \frac{z^m}{(1-z)^{m+1}} \cdot \frac{z^j}{(1-z)^{j+1}} \\
+    &= \frac{z^{m+j}}{(1-z)^{m+j+2}}
+\end{align*}
+Let $j=0$ then
+\begin{align*}
+    A_m(z) \cdot B_0(z) = \frac{z^m}{(1-z)^{m+1}} \cdot \frac{1}{(1-z)} = \frac{z^m}{(1-z)^{m+2}}
+\end{align*}
+Note that generating function above does not match the generating function of binomial coefficient $\binom{k}{n}$,
+fixed $n$.
+Multiplying by $z$ gives
+\begin{align*}
+    z A_m(z) \cdot B_0(z)
+    &= \sum_{n=0}^{\infty} \left( \sum_{k=0}^{n} \binom{k}{m} \binom{n-k}{0} \right) z^{n+1}
+    = \frac{z^m}{(1-z)^{m+1}} \cdot \frac{1}{(1-z)} \\
+    = \frac{z^{m+1}}{(1-z)^{m+2}}
+\end{align*}
+Now it matches.
+Taking the coefficient of $z^{n+1}$ yields
+\begin{align*}
+    [z^{n+1}] z A_m(z) \cdot B_0(z) = \binom{n+1}{m+1}
+\end{align*}
+Therefore, it is indeed true that
+\begin{align*}
+    \sum_{k=0}^{n} \binom{k}{m} = \binom{n+1}{m+1}
+\end{align*}
 \clearpage
