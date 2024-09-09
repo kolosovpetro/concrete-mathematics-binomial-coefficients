@@ -5,48 +5,44 @@ Using generating functions prove that
 \begin{equation*}
     \sum_{k=r}^{2n-1} k2^k \binom{2n-k-1}{n-1} = n2^r \binom{2n-r}{n}
 \end{equation*}
-First, let summation run over $k$ in range $k=0$ to $k=2n-1$
+First, let summation run over $k$ in range $k=0$ to $k=2n-1-r$
 \begin{align*}
-    \sum_{k=0}^{2n-1} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{n-1}
+    \sum_{k=0}^{2n-1-r} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{n-1}
 \end{align*}
-So it is clear that we are looking for the coefficient of $z^{2n-1}$ in multiplication of certain generating functions.
+So it is clear that we are looking for the coefficient of $z^{2n-1-r}$ in multiplication of certain generating functions.
 Another point worth attention is the lower index $n-1$ of the binomial coefficient $\binom{2n-(r+k)-1}{n-1}$,
 it is tricky because it hides another independent variable.
 Let $j=n-1$, then
 \begin{align*}
-    \sum_{k=0}^{2n-1} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{j}
+    \sum_{k=0}^{2n-1-r} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{j}
 \end{align*}
-Let be $t=2n-1$, then
+Let be $t=2n-1-r$, then
 \begin{align*}
-    \sum_{k=0}^{t} (r+k) 2^{r+k} \binom{t-(r+k)}{j}
+    \sum_{k=0}^{t} (r+k) 2^{r+k} \binom{t-k}{j}
 \end{align*}
 The term $(r+k)$ can be replaced by binomial coefficient $\binom{r+k}{1}$, then
 \begin{align*}
-    \sum_{k=0}^{t} 2^{r+k} \binom{r+k}{1} \binom{t-(r+k)}{j}
+    \sum_{k=0}^{t} 2^{r+k} \binom{r+k}{1} \binom{t-k}{j}
 \end{align*}
 Moving $2r$ out of summation yields
 \begin{align*}
-    2^r \sum_{k=0}^{t} 2^{k} \binom{r+k}{1} \binom{t-(r+k)}{j}
-\end{align*}
-Altering summation bounds yields
-\begin{align*}
-    2^r \sum_{k=0}^{t-r} 2^{k} \binom{r+k}{1} \binom{t-r-k}{j}
+    2^r \sum_{k=0}^{t} 2^{k} \binom{r+k}{1} \binom{t-k}{j}
 \end{align*}
 Therefore,
 \begin{align*}
     \binom{r+k}{1} &= \coefficientOf{z}{r+k} (1+z)^1 \\
-    \binom{t-r-k}{j} &= \coefficientOf{z}{t-r-k)} (1+z)^j
+    \binom{t-k}{j} &= \coefficientOf{z}{t-k} (1+z)^j
 \end{align*}
 Then
 \begin{align*}
-    \binom{r+k}{1} \binom{t-r-k}{j} &= \coefficientOf{z}{r+k} (1+z)^1  \cdot \coefficientOf{z}{t-r-k)} (1+z)^j \\
-    &= \coefficientOf{z}{t} (1+z)^{j+1} = \binom{t}{j+1}
+    \binom{r+k}{1} \binom{t-k}{j} &= \coefficientOf{z}{r+k} (1+z)^1 \cdot \coefficientOf{z}{t-k} (1+z)^j \\
+    &= \coefficientOf{z}{r+t} (1+z)^{j+1} = \binom{r+t}{j+1}
 \end{align*}
 So that
 \begin{align*}
-    2^r \sum_{k=0}^{t-r} 2^{k} \binom{r+k}{1} \binom{t-r-k}{j} &= 2^r \binom{t}{j+1} \sum_{k=0}^{t-r} 2^{k} \\
-    &= 2^r \binom{t}{j+1} (2^{t-r+1} - 1) \\
-    &= \binom{t}{j+1} (2^{t+1} - 2^r)
+    2^r \sum_{k=0}^{t} 2^{k} \binom{r+k}{1} \binom{t-k}{j} &= 2^r \binom{r+t}{j+1} \sum_{k=0}^{t} 2^{k} \\
+    &= 2^r \binom{r+t}{j+1} (2^{t+1} - 1) \\
+    &= \binom{r+t}{j+1} (2^{r+t+1} - 2^r)
 \end{align*}
 Taking $j=n-1$ and $t=2n-1$ yields
 \begin{align*}
