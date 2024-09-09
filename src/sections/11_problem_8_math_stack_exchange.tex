@@ -21,4 +21,39 @@ Let be $t=2n-1$, then
 \begin{align*}
     \sum_{k=0}^{t} (r+k) 2^{r+k} \binom{t-(r+k)}{j}
 \end{align*}
+The term $(r+k)$ can be replaced by binomial coefficient $\binom{r+k}{1}$, then
+\begin{align*}
+    \sum_{k=0}^{t} 2^{r+k} \binom{r+k}{1} \binom{t-(r+k)}{j}
+\end{align*}
+Moving $2r$ out of summation yields
+\begin{align*}
+    2^r \sum_{k=0}^{t} 2^{k} \binom{r+k}{1} \binom{t-(r+k)}{j}
+\end{align*}
+Altering summation bounds yields
+\begin{align*}
+    2^r \sum_{k=0}^{t-r} 2^{k} \binom{r+k}{1} \binom{t-r-k}{j}
+\end{align*}
+Therefore,
+\begin{align*}
+    \binom{r+k}{1} &= \coefficientOf{z}{r+k} \frac{1}{1-z} \\
+    \binom{t-r-k}{j} &= \coefficientOf{z}{t-r-k} \frac{z^j}{(1-z)^{j+1}}
+\end{align*}
+Then
+\begin{align*}
+    \binom{r+k}{1} \binom{t-r-k}{j} &= \coefficientOf{z}{r+k} \frac{1}{1-z} \cdot \coefficientOf{z}{t-r-k} \frac{z^j}{(1-z)^{j+1}} \\
+    &= \coefficientOf{z}{t} \frac{z^j}{(1-z)^{j+2}}
+\end{align*}
+Multiplying by $z$ yields
+\begin{align*}
+    \coefficientOf{z}{t} \frac{z^j}{(1-z)^{j+2}} = \coefficientOf{z}{t+1} \frac{z^{j+1}}{(1-z)^{j+2}} = \binom{t+1}{j+1}
+\end{align*}
+So that
+\begin{align*}
+    2^r \sum_{k=0}^{t-r} 2^{k} \binom{r+k}{1} \binom{t-r-k}{j} &= 2^r \binom{t+1}{j+1} \sum_{k=0}^{t-r} 2^{k} \\
+    &= 2^r \binom{t+1}{j+1} (2^{t-r+1} - 1) \\
+    &= \binom{t+1}{j+1} (2^{t+1} - 2^r) \\
+\end{align*}
+
+
+
 \clearpage
