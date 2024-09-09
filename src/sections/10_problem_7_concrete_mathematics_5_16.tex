@@ -2,13 +2,40 @@
 \label{sec:problem-7}
 
 This is from Concrete Mathematics equation (5.16).
-
-
-
-
-
-
-
+Using generating function prove that
+\begin{equation}
+    \sum_{k\leq m} \binom{r}{k} (-1)^k = (-1)^m \binom{r-1}{m}
+    \label{eq:problem-7}
+\end{equation}
+Let be $m=n$ for the sake of clarity
+\begin{align*}
+    \sum_{k=0}^{n} \binom{r}{k} (-1)^k = (-1)^n \binom{r-1}{n}
+\end{align*}
+So we are looking for the coefficient of $z^n$ in multiplication of certain generating functions $A, B$.
+Rewrite the problem
+\begin{align*}
+    \sum_{k=0}^{n} 1 \cdot \binom{r}{r-k} (-1)^k = (-1)^n \binom{r-1}{n}
+\end{align*}
+So that generating function for all $1$ is $A$
+\begin{align*}
+    A(z) = \frac{1}{1-z}
+\end{align*}
+For $\binom{r}{r-k} (-1)^k$ is $B(z)$
+\begin{align*}
+    B_r (z) = (1-z)^r
+\end{align*}
+Multiplication of those generating functions yields
+\begin{align*}
+    A(z) \cdot B_r (z) = \frac{1}{1-z} \cdot (1-z)^r = (1-z)^{r-1}
+\end{align*}
+Therefore the coefficient of $z^n$ in $A(z) \cdot B_r (z) = (1-z)^{r-1}$ is
+\begin{align*}
+    \coefficientOf{z}{n} (1-z)^{r-1} = (-1)^n \binom{r-1}{n}
+\end{align*}
+Therefore, identity is true
+\begin{align*}
+    \sum_{k=0}^{n} \binom{r}{k} (-1)^k = (-1)^n \binom{r-1}{n}
+\end{align*}
 
 
 
