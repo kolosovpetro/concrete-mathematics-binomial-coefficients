@@ -2,10 +2,9 @@
 \label{sec:problem-8}
 This is from https://math.stackexchange.com/q/4965803/463487.
 Using generating functions prove that
-\begin{equation}
+\begin{equation*}
     \sum_{k=r}^{2n-1} k2^k \binom{2n-k-1}{n-1} = n2^r \binom{2n-r}{n}
-    \label{eq:problem-8}
-\end{equation}
+\end{equation*}
 First, let summation run over $k$ in range $k=0$ to $k=2n-1$
 \begin{align*}
     \sum_{k=0}^{2n-1} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{n-1}
@@ -35,25 +34,26 @@ Altering summation bounds yields
 \end{align*}
 Therefore,
 \begin{align*}
-    \binom{r+k}{1} &= \coefficientOf{z}{r+k} \frac{1}{1-z} \\
-    \binom{t-r-k}{j} &= \coefficientOf{z}{t-r-k} \frac{z^j}{(1-z)^{j+1}}
+    \binom{r+k}{1} &= \coefficientOf{z}{r+k} (1+z)^1 \\
+    \binom{t-r-k}{j} &= \coefficientOf{z}{t-r-k)} (1+z)^j
 \end{align*}
 Then
 \begin{align*}
-    \binom{r+k}{1} \binom{t-r-k}{j} &= \coefficientOf{z}{r+k} \frac{1}{1-z} \cdot \coefficientOf{z}{t-r-k} \frac{z^j}{(1-z)^{j+1}} \\
-    &= \coefficientOf{z}{t} \frac{z^j}{(1-z)^{j+2}}
-\end{align*}
-Multiplying by $z$ yields
-\begin{align*}
-    \coefficientOf{z}{t} \frac{z^j}{(1-z)^{j+2}} = \coefficientOf{z}{t+1} \frac{z^{j+1}}{(1-z)^{j+2}} = \binom{t+1}{j+1}
+    \binom{r+k}{1} \binom{t-r-k}{j} &= \coefficientOf{z}{r+k} (1+z)^1  \cdot \coefficientOf{z}{t-r-k)} (1+z)^j \\
+    &= \coefficientOf{z}{t} (1+z)^{j+1} = \binom{t}{j+1}
 \end{align*}
 So that
 \begin{align*}
-    2^r \sum_{k=0}^{t-r} 2^{k} \binom{r+k}{1} \binom{t-r-k}{j} &= 2^r \binom{t+1}{j+1} \sum_{k=0}^{t-r} 2^{k} \\
-    &= 2^r \binom{t+1}{j+1} (2^{t-r+1} - 1) \\
-    &= \binom{t+1}{j+1} (2^{t+1} - 2^r) \\
+    2^r \sum_{k=0}^{t-r} 2^{k} \binom{r+k}{1} \binom{t-r-k}{j} &= 2^r \binom{t}{j+1} \sum_{k=0}^{t-r} 2^{k} \\
+    &= 2^r \binom{t}{j+1} (2^{t-r+1} - 1) \\
+    &= \binom{t}{j+1} (2^{t+1} - 2^r)
 \end{align*}
-
+Taking $j=n-1$ and $t=2n-1$ yields
+\begin{align*}
+    \sum_{k=r}^{2n-1} k2^k \binom{2n-k-1}{n-1} = \binom{2n-1}{n} (2^{2n} - 2^{r})
+\end{align*}
+Which is different closed form than the one given in the problem.
+Point out on the mistake in current solution and propose a correct one.
 
 
 \clearpage
