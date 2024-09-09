@@ -1,0 +1,24 @@
+﻿\section{Problem 8: }
+\label{sec:problem-8}
+This is from https://math.stackexchange.com/q/4965803/463487.
+Using generating functions prove that
+\begin{equation}
+    \sum_{k=r}^{2n-1} k2^k \binom{2n-k-1}{n-1} = n2^r \binom{2n-r}{n}
+    \label{eq:problem-8}
+\end{equation}
+First, let summation run over $k$ in range $k=0$ to $k=2n-1$
+\begin{align*}
+    \sum_{k=0}^{2n-1} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{n-1}
+\end{align*}
+So it is clear that we are looking for the coefficient of $z^{2n-1}$ in multiplication of certain generating functions.
+Another point worth attention is the lower index $n-1$ of the binomial coefficient $\binom{2n-(r+k)-1}{n-1}$,
+it is tricky because it hides another independent variable.
+Let $j=n-1$, then
+\begin{align*}
+    \sum_{k=0}^{2n-1} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{j}
+\end{align*}
+Let be $t=2n-1$, then
+\begin{align*}
+    \sum_{k=0}^{t} (r+k) 2^{r+k} \binom{t-(r+k)}{j}
+\end{align*}
+\clearpage
