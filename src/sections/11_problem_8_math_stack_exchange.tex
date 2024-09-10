@@ -44,10 +44,10 @@ So that
     &= 2^r \binom{r+t}{j+1} (2^{t+1} - 1) \\
     &= \binom{r+t}{j+1} (2^{r+t+1} - 2^r)
 \end{align*}
-Taking $j=n-1$ and $t=2n-1$ yields
+Taking $j=n-1$ and $t=2n-1-r$ yields
 \begin{align*}
     \sum_{k=0}^{2n-1-r} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{j} &= \sum_{k=r}^{2n-1} k2^k \binom{2n-k-1}{n-1} \\
-    &= \binom{r+t}{j+1} (2^{r+t+1} - 2^r)
+    &= \binom{2n-1}{n} (2^{2n} - 2^r)
 \end{align*}
 Which is different closed form than the one given in the problem.
 Point out on the mistake in current solution and propose a correct one.
