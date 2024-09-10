@@ -1,6 +1,6 @@
-﻿\section{Problem 8: }
+﻿\section{Problem 8:}
 \label{sec:problem-8}
-This is from https://math.stackexchange.com/q/4965803/463487.
+Inspired by the question: https://math.stackexchange.com/q/4965803/463487.
 Using generating functions prove that
 \begin{equation*}
     \sum_{k=r}^{2n-1} k2^k \binom{2n-k-1}{n-1} = n2^r \binom{2n-r}{n}
@@ -28,7 +28,7 @@ Moving $2r$ out of summation yields
 \begin{align*}
     2^r \sum_{k=0}^{t} 2^{k} \binom{r+k}{1} \binom{t-k}{j}
 \end{align*}
-Therefore,
+Therefore, using generating functions for binomial coefficients
 \begin{align*}
     \binom{r+k}{1} &= \coefficientOf{z}{r+k} (1+z)^1 \\
     \binom{t-k}{j} &= \coefficientOf{z}{t-k} (1+z)^j
@@ -46,7 +46,8 @@ So that
 \end{align*}
 Taking $j=n-1$ and $t=2n-1$ yields
 \begin{align*}
-    \sum_{k=r}^{2n-1} k2^k \binom{2n-k-1}{n-1} = \binom{2n-1}{n} (2^{2n} - 2^{r})
+    \sum_{k=0}^{2n-1-r} (r+k) 2^{r+k} \binom{2n-(r+k)-1}{j} &= \sum_{k=r}^{2n-1} k2^k \binom{2n-k-1}{n-1} \\
+    &= \binom{r+t}{j+1} (2^{r+t+1} - 2^r)
 \end{align*}
 Which is different closed form than the one given in the problem.
 Point out on the mistake in current solution and propose a correct one.
